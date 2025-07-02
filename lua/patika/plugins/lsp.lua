@@ -89,10 +89,13 @@ return {
                     }
                 end,
 		bash=function ()
-		   local lspconfig =require("lpsconfig")
-			lspconfig.bashls.setup ({})			
-		end
-				
+		   local lspconfig =require("lspconfig")
+			lspconfig.bashls.setup ({})
+		end,
+        java=function ()
+            local lspconfig =require("lspconfig")
+                lspconfig.jdtls.setup({})
+        end
             }
         })
 
@@ -107,7 +110,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<TAB>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
